@@ -20,22 +20,3 @@ data %>%
   row_layout() %>% 
   add_stats()
 ```
-
-
-### Export `cross_table`
-```R
-data %>% 
-  cross_table(dependent_var ~ independent_var) %>% 
-  row_layout() %>% 
-  export_md()
-
-data %>% 
-  cross_table(dependent_var ~ independent_var) %>% 
-  row_layout() %>% 
-  export_html()
-  
-data %>% 
-  cross_table(dependent_var ~ independent_var) %>% 
-  row_layout() %>% 
-  export_png()
-```
