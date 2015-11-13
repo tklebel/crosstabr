@@ -13,6 +13,8 @@
 #'
 #' @export
 cross_table <- function(data, x) {
+  assertthat::assert_that(is.data.frame(data), is_formula(x))
+
   # evaluate formula and create terms object
   forumla <- substitute(x)
   model <- eval(forumla, data) %>% terms
@@ -20,5 +22,13 @@ cross_table <- function(data, x) {
   # build data.frame from terms object.
   model_frame <- model.frame(model)
 
-  invisible(model_frame)
+
+  tab <- structure(
+    list(
+      model_frame = model_frame,
+      layout = NULL
+    ),
+    class = "cross_table"
+  )
+  tab
 }
