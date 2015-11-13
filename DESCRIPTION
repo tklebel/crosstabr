@@ -6,10 +6,13 @@ Date: 2015-11-13
 Authors@R: person("Thomas", "Klebel", email = "t.klebel@icloud.com",
           role = c("cre", "aut"))
 Description: Cross tabulation for HTML and Markdown. This packages offers
-    Cross tabulation in a new way: You can use layers to customize the output.
-    The resulting table is rendered as HTML for better display. Methods for
-    using crosstabr together with RMarkdown are available.
+    cross tabulation in a new way: You can use layers to customize the output.
+    The resulting table is rendered as HTML for better display on small screens.
+    Methods for using crosstabr together with RMarkdown will be made available.
 LazyData: TRUE
 imports: vcd,
-    magrittr
+    magrittr,
+    assertthat,
+    htmltools (>= 0.2.4),
+    xtable
 RoxygenNote: 5.0.0
