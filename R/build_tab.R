@@ -36,7 +36,7 @@ build_tab <- function(tab) {
   levels_independent <- levels(prop_count[[2]])
 
   # create matrix from combined counts and freqs
-  two_d_table <- matrix(combinded, ncol = 2,
+  two_d_table <- matrix(combinded, ncol = length(levels_independent),
                         dimnames = list(
                           as.list(levels_dependent),
                           as.list(levels_independent)
