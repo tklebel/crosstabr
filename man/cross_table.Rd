@@ -4,12 +4,15 @@
 \alias{cross_table}
 \title{cross_table}
 \usage{
-cross_table(data, x)
+cross_table(data = NULL, x = NULL, layer = NULL)
 }
 \arguments{
 \item{data}{\code{data.frame} which contains the data, given in \code{x}}
 
-\item{x}{A formula specifying \code{dependent ~ independent}.
+\item{x}{A formula specifying \code{dependent ~ independent}.}
+
+\item{layer}{A third variable which is used to construct a three-dimensional
+   cross_table.
 
 Strictly speaking there is no dependent or independet variable in
 cross-tabulation. Nevertheless it is common to calculate percentages, for
