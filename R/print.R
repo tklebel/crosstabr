@@ -11,11 +11,17 @@ print.cross_table <- function(tab) {
 
   tab_out <- build_tab(tab)
 
+  # create html_table
+  html_table <- capture.output(print(htmlTable::htmlTable(base_table), useViewer = F))
 
-  # create html table
-  html_table <- print(xtable::xtable(tab_out), type = "html",
-                      html.table.attributes = "",
-                      print.results = F)
+  # pattern to remove inline css-styles
+  style_pattern <- "(style).*(?=;).{2}"
+
+  # remove inline css
+  html_table <- html_table %>%
+    stringr::str_replace_all(style_pattern, "") %>%
+    stringr::str_c(collapse = "")
+
 
   # prepare output by using htmltools to set up tag with html_table
   html <- htmltools::tags$body(
@@ -26,5 +32,4 @@ print.cross_table <- function(tab) {
   html %>%
     htmltools::browsable() %>%
     htmltools::html_print()
-
 }
