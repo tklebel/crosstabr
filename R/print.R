@@ -12,7 +12,9 @@ print.cross_table <- function(tab) {
   tab_out <- build_tab(tab)
 
   # create html_table
-  html_table <- capture.output(print(htmlTable::htmlTable(base_table), useViewer = F))
+  html_table <- capture.output(
+    print(htmlTable::htmlTable(tab_out), useViewer = F)
+  )
 
   # pattern to remove inline css-styles
   style_pattern <- "(style).*(?=;).{2}"
