@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* Reset table */
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Heading */
+h1 {
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+}
+
+
+/* Table */
+
+table {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+}
+
+#tables {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+#two-way {
+	position: absolute;
+	width: 50%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#two-way thead {
+	text-align: center;
+	font-weight: normal;
+}
+
+#two-way tbody {
+	text-align: right;
+}
+
+#two-way th {
+	padding: .5em 0em .5em .5em;
+	border-bottom: 2px solid black;
+}
+
+td {
+	padding: .5em 0em;
+}

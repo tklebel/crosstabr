@@ -26,12 +26,45 @@ print.cross_table <- function(tab) {
 
 
   # prepare output by using htmltools to set up tag with html_table
-  html <- htmltools::tags$body(
-    htmltools::div(id = "table", htmltools::HTML(html_table))
-  )
+  html <- create_page(html_table)
 
   # output the table to temporary html_file
   html %>%
-    htmltools::browsable() %>%
-    htmltools::html_print()
+    browsable() %>%
+    html_print()
+}
+
+
+#' HTML parts of page
+#'
+#' This function currently serves to prepare the pagelayout.
+#'
+#' Later on this function should be more flexible insofar as the content of the
+#' page should be dependent on the content of the table.
+#'
+#' @param html_table a bare HTML table, created with \code{htmlTable}.
+#' @return a \code{tagList} with registered dependencies.
+create_page <- function(html_table) {
+
+  # create link to stylesheet
+  style_link <- htmlDependency(
+    name = "crosstabr",
+    version = as.character(packageVersion("crosstabr")),
+    src = system.file(package = "crosstabr"),
+    stylesheet = "css/crosstabr.css"
+  )
+
+  html <- tagList(
+    tags$body(
+      h1(id = "title", "Crosstabr"),
+      div(id = "tables",
+          div(id = "two-way",
+            HTML(html_table)
+          )
+        )
+    )
+  )
+  html <- attachDependencies(html, style_link)
+
+  html
 }
