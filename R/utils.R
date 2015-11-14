@@ -11,5 +11,5 @@ format_freq <- function(x) {
   x <- x*100
   x %>%
     round(digits = 1) %>% # round to one digit after decimal mark
-    str_c("%")
+    stringr::str_c("%")
 }
