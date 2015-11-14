@@ -9,17 +9,7 @@
 #' @export
 print.cross_table <- function(tab) {
 
-  # guess layout if none is provided
-  if (is.null(tab$layout)) {
-    message("No layout provided, using layout_column")
-    tab <- layout_column(tab)
-  }
-
-  if (tab$layout == "column") {
-    tab_out <- table(tab$model_frame)
-  } else {
-    stop("just column layout supported until now")
-  }
+  tab_out <- build_tab(tab)
 
 
   # create html table
@@ -28,12 +18,13 @@ print.cross_table <- function(tab) {
                       print.results = F)
 
   # prepare output by using htmltools to set up tag with html_table
-  html <- tags$body(
-    div(id = "table", HTML(html_table))
+  html <- htmltools::tags$body(
+    htmltools::div(id = "table", htmltools::HTML(html_table))
   )
 
   # output the table to temporary html_file
   html %>%
     htmltools::browsable() %>%
     htmltools::html_print()
+
 }
