@@ -10,9 +10,12 @@ Description: Cross tabulation for HTML and Markdown. This packages offers
     The resulting table is rendered as HTML for better display on small screens.
     Methods for using crosstabr together with RMarkdown will be made available.
 LazyData: TRUE
-imports: vcd,
+Imports: vcd,
     magrittr,
     assertthat,
     htmltools (>= 0.2.4),
-    xtable
+    xtable,
+    stringr,
+    purrr,
+    dplyr
 RoxygenNote: 5.0.0

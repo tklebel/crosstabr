@@ -16,12 +16,12 @@ build_tab <- function(tab) {
 
   # calcualte frequencies and counts
   prop_count <- tab$model_frame %>%
-    group_by_(dependent, independent) %>%
-    summarise(n = n()) %>%
-    group_by_(independent) %>%
-    mutate(freq = n / sum(n)) %>%
-    ungroup() %>%
-    arrange_(independent)
+    dplyr::group_by_(dependent, independent) %>%
+    dplyr::summarise(n = n()) %>%
+    dplyr::group_by_(independent) %>%
+    dplyr::mutate(freq = n / sum(n)) %>%
+    dplyr::ungroup() %>%
+    dplyr::arrange_(independent)
 
   # format counts and frequencies accordingly
   prop_count <- prop_count %>%
