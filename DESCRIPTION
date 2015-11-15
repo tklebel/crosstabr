@@ -1,14 +1,16 @@
 Package: crosstabr
 Type: Package
-Title: Cross tabulation for HTML and Markdown
+Title: Cross tabulation with HTML and RMarkdown
 Version: 0.1
 Date: 2015-11-13
 Authors@R: person("Thomas", "Klebel", email = "t.klebel@icloud.com",
           role = c("cre", "aut"))
 Description: Cross tabulation for HTML and Markdown. This packages offers
-    cross tabulation in a new way: You can use layers to customize the output.
-    The resulting table is rendered as HTML for better display on small screens.
-    Methods for using crosstabr together with RMarkdown will be made available.
+    cross tabulation in a new way: You can use the pipe-operator to create cross
+    tabulation with a greater degree of complexity and customization.
+    The resulting table is rendered as HTML, which is far more flexible than
+    returning a table in the console. Methods for using crosstabr together with
+    RMarkdown will be made available.
 LazyData: TRUE
 Depends: htmltools
 Imports: vcd,
