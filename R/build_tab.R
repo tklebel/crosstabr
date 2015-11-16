@@ -25,8 +25,7 @@ build_tab <- function(tab) {
 
   # format counts and frequencies accordingly
   prop_count <- prop_count %>%
-    purrr::map_at("freq", format_freq) %>%
-    purrr::map_at("n", ~paste(.x, "")) # add one WS for correct alignment
+    purrr::map_at("freq", format_freq)
 
   # combine counts and freqs into one string
   combinded <- paste(prop_count$n, prop_count$freq, sep = "<br>")
