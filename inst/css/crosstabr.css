@@ -28,6 +28,9 @@ h1 {
 table {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0 auto;
+	table-layout: fixed;
+	width: 100%;
+	/* white-space: nowrap; */
 }
 
 #tables {
@@ -38,11 +41,13 @@ table {
 
 #two-way {
 	position: absolute;
-	width: 50%;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+	width: 100%;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 70%;
+	word-break: break-word;
 }
 
 #two-way thead {
@@ -57,6 +62,13 @@ table {
 #two-way th {
 	padding: .5em 0em .5em .5em;
 	border-bottom: 2px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+th:last-child, td:last-child {
+	border-left: thin solid black;
 }
 
 td {
