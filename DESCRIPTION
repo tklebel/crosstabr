@@ -19,5 +19,6 @@ Imports: vcd,
     xtable,
     stringr,
     purrr,
-    dplyr
+    dplyr,
+    tidyr
 RoxygenNote: 5.0.0
