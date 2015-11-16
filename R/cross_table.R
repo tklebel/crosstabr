@@ -39,3 +39,16 @@ cross_table <- function(data = NULL, x = NULL, layer = NULL) {
   )
   tab
 }
+
+#' A tab-object
+#'
+#' The \code{tab} is the core of \code{crosstabr}.
+#'
+#' The \code{tab}is an object of class \code{cross_table}. It contains the
+#' formula of the \code{cross_table}, from which a \code{\link{model.frame}} was
+#' built, as well as other arguments which determine the apperance of the final
+#' cross table.
+#'
+#' @keywords internal
+#' @name tab
+NULL
