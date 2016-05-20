@@ -13,7 +13,6 @@ Description: Cross tabulation for HTML and Markdown. This packages offers
     RMarkdown will be made available.
 LazyData: TRUE
 Imports:
-    vcd,
     magrittr,
     assertthat,
     stringr,
