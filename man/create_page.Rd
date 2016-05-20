@@ -4,13 +4,13 @@
 \alias{create_page}
 \title{HTML parts of page}
 \usage{
-create_page(html_table)
+create_page(x)
 }
 \arguments{
-\item{html_table}{a bare HTML table, created with \code{htmlTable}.}
+\item{x}{A bare HTML table, created with \code{htmlTable}.}
 }
 \value{
-a \code{tagList} with registered dependencies.
+A \code{tagList} with registered dependencies.
 }
 \description{
 This function currently serves to prepare the pagelayout.

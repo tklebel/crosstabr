@@ -42,9 +42,9 @@ print.crosstab <- function(x, ...) {
 #' Later on this function should be more flexible insofar as the content of the
 #' page should be dependent on the content of the table.
 #'
-#' @param html_table a bare HTML table, created with \code{htmlTable}.
-#' @return a \code{tagList} with registered dependencies.
-create_page <- function(html_table) {
+#' @param x A bare HTML table, created with \code{htmlTable}.
+#' @return A \code{tagList} with registered dependencies.
+create_page <- function(x) {
 
   # create link to stylesheet
   style_link <- htmltools::htmlDependency(
@@ -58,7 +58,7 @@ create_page <- function(html_table) {
     tags$body(
       div(id = "tables",
           div(id = "two-way",
-            HTML(html_table)
+            HTML(x)
           )
         )
     )
