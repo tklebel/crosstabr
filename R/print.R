@@ -56,7 +56,6 @@ create_page <- function(html_table) {
 
   html <- tagList(
     tags$body(
-      h1(id = "title", "Crosstabr"),
       div(id = "tables",
           div(id = "two-way",
             HTML(html_table)
