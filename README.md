@@ -16,11 +16,10 @@ when using `cross_table` within RMarkdown will be added.
 devtools::install_github("tklebel/crosstabr")
 ```
 
-## Basics
+## Basic Usage
 
 ```R
-data %>% 
-  cross_table(dependent_var ~ independent_var) %>% 
-  row_layout() %>% 
-  add_stats()
+titanic %>% 
+  crosstab(Survived ~ Sex)  %>% 
+  layout_column()
 ```
