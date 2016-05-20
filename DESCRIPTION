@@ -12,17 +12,15 @@ Description: Cross tabulation for HTML and Markdown. This packages offers
     returning a table in the console. Methods for using crosstabr together with
     RMarkdown will be made available.
 LazyData: TRUE
-Depends:
-    htmltools
 Imports:
     vcd,
     magrittr,
     assertthat,
-    xtable,
     stringr,
     purrr,
     dplyr,
-    tidyr
+    tidyr,
+    htmltools
 RoxygenNote: 5.0.1
 Suggests:
     covr,

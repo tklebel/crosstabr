@@ -30,8 +30,8 @@ print.cross_table <- function(tab) {
 
   # output the table to temporary html_file
   html %>%
-    browsable() %>%
-    html_print()
+    htmltools::browsable() %>%
+    htmltools::html_print()
 }
 
 
@@ -47,24 +47,24 @@ print.cross_table <- function(tab) {
 create_page <- function(html_table) {
 
   # create link to stylesheet
-  style_link <- htmlDependency(
+  style_link <- htmltools::htmlDependency(
     name = "crosstabr",
     version = as.character(packageVersion("crosstabr")),
     src = system.file(package = "crosstabr"),
     stylesheet = "css/crosstabr.css"
   )
 
-  html <- tagList(
-    tags$body(
-      h1(id = "title", "Crosstabr"),
-      div(id = "tables",
-          div(id = "two-way",
-            HTML(html_table)
+  html <- htmltools::tagList(
+    htmltools::tags$body(
+      htmltools::h1(id = "title", "Crosstabr"),
+      htmltools::div(id = "tables",
+          htmltools::div(id = "two-way",
+            htmltools::HTML(html_table)
           )
         )
     )
   )
-  html <- attachDependencies(html, style_link)
+  html <- htmltools::attachDependencies(html, style_link)
 
   html
 }
