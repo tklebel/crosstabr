@@ -6,6 +6,9 @@
 \usage{
 is_formula(x)
 }
+\arguments{
+\item{x}{An atomic vector.}
+}
 \description{
 Is a formula?
 }

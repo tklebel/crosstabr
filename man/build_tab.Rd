@@ -14,7 +14,7 @@ Returns a matrix with counts and proportions, seperated by "<br>".
    Currently just a single two dimensional table is created.
 }
 \description{
-Builds a \code{matrix} for use with \code{\link{htmlTable}}.
+Builds a \code{matrix} for use with \code{\link[htmlTable]{htmlTable}}.
 }
 \keyword{internal}
 

@@ -1,6 +1,6 @@
 #' Build a table
 #'
-#' Builds a \code{matrix} for use with \code{\link{htmlTable}}.
+#' Builds a \code{matrix} for use with \code{\link[htmlTable]{htmlTable}}.
 #'
 #' @param tab A tab object
 #'

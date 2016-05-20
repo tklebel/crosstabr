@@ -1,6 +1,6 @@
 #' Is a formula?
 #'
-#' @export
+#' @param x An atomic vector.
 #' @examples
 #' x <- disp ~ am
 #' is_formula(x)
