@@ -1,6 +1,6 @@
 Package: crosstabr
 Type: Package
-Title: Cross tabulation with HTML and RMarkdown
+Title: Cross Tabulation with HTML and RMarkdown
 Version: 0.1
 Date: 2015-11-13
 Authors@R: person("Thomas", "Klebel", email = "t.klebel@icloud.com",
@@ -22,3 +22,4 @@ Imports: vcd,
     dplyr,
     tidyr
 RoxygenNote: 5.0.0
+Suggests: covr
