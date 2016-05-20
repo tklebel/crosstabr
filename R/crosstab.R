@@ -44,7 +44,7 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
 #'
 #' The \code{tab} is the core of \code{crosstabr}.
 #'
-#' The \code{tab}is an object of class \code{crosstab}. It contains the
+#' The \code{tab} is an object of class \code{crosstab}. It contains the
 #' formula of the \code{crosstab}, from which a \code{\link{model.frame}} was
 #' built, as well as other arguments which determine the apperance of the final
 #' cross table.
