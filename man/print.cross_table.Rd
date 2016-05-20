@@ -4,7 +4,7 @@
 \alias{print.cross_table}
 \title{Print method for cross_table}
 \usage{
-\method{print}{cross_table}(tab)
+\method{print}{cross_table}(tab, ...)
 }
 \arguments{
 \item{tab}{A cross_table object.}

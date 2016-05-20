@@ -7,7 +7,7 @@
 #' @keywords internal
 #' @method print cross_table
 #' @export
-print.cross_table <- function(tab) {
+print.cross_table <- function(tab, ...) {
 
   tab_out <- build_tab(tab)
 
