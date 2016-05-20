@@ -1,5 +1,6 @@
 [![Travis-CI Build Status](https://travis-ci.org/tklebel/crosstabr.svg?branch=master)](https://travis-ci.org/tklebel/crosstabr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tklebel/crosstabr/master.svg)](https://codecov.io/github/tklebel/crosstabr?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/crosstabr)](https://cran.r-project.org/package=crosstabr)
 
 # crosstabr
 crosstabr is a package to create crosstabs with a simple syntax. Current
