@@ -1,15 +1,15 @@
-#' Print method for cross_table
+#' Print method for crosstab
 #'
 #' The cross tabulation is rendered as a html, which can be viewed in RStudio's
 #' viewer pane.
 #'
-#' @param x A cross_table object.
+#' @param x A crosstab object.
 #' @keywords internal
-#' @method print cross_table
+#' @method print crosstab
 #' @export
-print.cross_table <- function(x, ...) {
+print.crosstab <- function(x, ...) {
 
-  tab_out <- build_tab(tab)
+  tab_out <- build_tab(x)
 
   # create html_table
   html_table <- utils::capture.output(
