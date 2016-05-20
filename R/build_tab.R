@@ -64,7 +64,7 @@ compute_frequencies <- function(x) {
 
   # calculate frequencies and counts
   prop_count <- x$model_frame %>%
-    xtabs(data = .) %>%
+    stats::xtabs(data = .) %>%
     as.data.frame() %>%
     dplyr::group_by_(independent) %>%
     dplyr::mutate(prop = Freq / sum(Freq)) %>%

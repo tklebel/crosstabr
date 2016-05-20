@@ -12,7 +12,7 @@ print.cross_table <- function(tab) {
   tab_out <- build_tab(tab)
 
   # create html_table
-  html_table <- capture.output(
+  html_table <- utils::capture.output(
     print(htmlTable::htmlTable(tab_out), useViewer = F)
   )
 
