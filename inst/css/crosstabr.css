@@ -11,10 +11,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 /* Heading */
 h1 {
@@ -27,10 +23,25 @@ h1 {
 
 table {
 	font-family: 'Open Sans', sans-serif;
-	margin: 0 auto;
+	margin: 1em auto;
 	table-layout: fixed;
 	width: 100%;
+	border-collapse: collapse;
+  border-spacing: 0;
 	/* white-space: nowrap; */
+}
+
+@media only screen and (min-width: 800px) {
+  table {
+    width: 80%;
+    margin: 2em auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  table {
+    width: 60%;
+  }
 }
 
 #tables {
@@ -46,12 +57,12 @@ table {
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 70%;
+	font-size: 75%;
 	word-break: break-word;
 }
 
 #two-way thead {
-	text-align: center;
+	text-align: right;
 	font-weight: normal;
 }
 
@@ -60,17 +71,24 @@ table {
 }
 
 #two-way th {
-	padding: .5em 0em .5em .5em;
+	padding: .5em;
 	border-bottom: 2px solid black;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+/* Activate this, when marginal column is there
+
 th:last-child, td:last-child {
 	border-left: thin solid black;
 }
+*/
+
+td:first-child {
+  text-align: center;
+}
 
 td {
-	padding: .5em 0em;
+	padding: .5em .5em;
 }
