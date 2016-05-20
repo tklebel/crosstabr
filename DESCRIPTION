@@ -23,3 +23,4 @@ Imports: vcd,
     tidyr
 RoxygenNote: 5.0.0
 Suggests: covr
+License: MIT + file LICENSE
