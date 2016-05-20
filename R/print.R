@@ -3,11 +3,11 @@
 #' The cross tabulation is rendered as a html, which can be viewed in RStudio's
 #' viewer pane.
 #'
-#' @param tab A cross_table object.
+#' @param x A cross_table object.
 #' @keywords internal
 #' @method print cross_table
 #' @export
-print.cross_table <- function(tab, ...) {
+print.cross_table <- function(x, ...) {
 
   tab_out <- build_tab(tab)
 

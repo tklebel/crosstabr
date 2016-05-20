@@ -4,10 +4,10 @@
 \alias{print.cross_table}
 \title{Print method for cross_table}
 \usage{
-\method{print}{cross_table}(tab, ...)
+\method{print}{cross_table}(x, ...)
 }
 \arguments{
-\item{tab}{A cross_table object.}
+\item{x}{A cross_table object.}
 }
 \description{
 The cross tabulation is rendered as a html, which can be viewed in RStudio's
