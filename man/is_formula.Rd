@@ -14,7 +14,7 @@ Checks if input is a formula.
 }
 \examples{
 x <- disp ~ am
-is_formula(x)
+crosstabr:::is_formula(x)
 }
 \keyword{internal}
 
