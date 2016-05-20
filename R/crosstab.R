@@ -22,10 +22,10 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
 
   # evaluate formula and create terms object
   forumla <- substitute(x)
-  model <- eval(forumla, data) %>% terms
+  model <- eval(forumla, data) %>% stats::terms()
 
   # build data.frame from terms object.
-  model_frame <- model.frame(model)
+  model_frame <- stats::model.frame(model)
 
 
   tab <- structure(
