@@ -49,7 +49,7 @@ create_page <- function(html_table) {
   # create link to stylesheet
   style_link <- htmltools::htmlDependency(
     name = "crosstabr",
-    version = as.character(packageVersion("crosstabr")),
+    version = as.character(utils::packageVersion("crosstabr")),
     src = system.file(package = "crosstabr"),
     stylesheet = "css/crosstabr.css"
   )
