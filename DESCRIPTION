@@ -12,6 +12,7 @@ Description: Cross tabulation for HTML and Markdown. This packages offers
     returning a table in the console. Methods for using crosstabr together with
     RMarkdown will be made available.
 LazyData: TRUE
+Depends: R (>= 2.10)
 Imports:
     magrittr,
     assertthat,
