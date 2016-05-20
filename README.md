@@ -20,6 +20,5 @@ devtools::install_github("tklebel/crosstabr")
 
 ```R
 titanic %>% 
-  crosstab(Survived ~ Sex)  %>% 
-  layout_column()
+  crosstab(Survived ~ Sex)
 ```
