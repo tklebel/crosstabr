@@ -1,6 +1,10 @@
 #' Is a formula?
 #'
+#' Checks if input is a formula.
+#'
 #' @param x An atomic vector.
+#' @keywords internal
+#' @export
 #' @examples
 #' x <- disp ~ am
 #' is_formula(x)

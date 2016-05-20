@@ -10,10 +10,11 @@ is_formula(x)
 \item{x}{An atomic vector.}
 }
 \description{
-Is a formula?
+Checks if input is a formula.
 }
 \examples{
 x <- disp ~ am
 is_formula(x)
 }
+\keyword{internal}
 
