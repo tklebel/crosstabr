@@ -7,7 +7,9 @@
 #' @examples
 #' x <- disp ~ am
 #' crosstabr:::is_formula(x)
-is_formula <- function(x) inherits(x, "formula")
+is_twoside_formula <- function(x) {
+  inherits(x, "formula") && identical(length(x), 3L)
+}
 
 
 format_freq <- function(x) {

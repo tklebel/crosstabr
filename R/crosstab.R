@@ -18,8 +18,8 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
   if (!is.data.frame(data)) {
     stop("Data must be a 'data.frame'.")
   }
-  if (!is_formula(x)) {
-    stop("'x' must be a formula.")
+  if (!is_twoside_formula(x)) {
+    stop("'x' must be a two-sided formula.")
   }
 
   if (!is.null(layer))
