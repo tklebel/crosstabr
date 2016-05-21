@@ -9,27 +9,17 @@
 #' @export
 print.crosstab <- function(x, ...) {
 
+  # compute table
   tab_out <- build_tab(x)
 
-  # create html_table
-  html_table <- utils::capture.output(
-    print(htmlTable::htmlTable(tab_out), useViewer = F)
-  )
+  # create html table
+  html_table <- prepare_table(tab_out)
 
-  # pattern to remove inline css-styles
-  style_pattern <- "(style).*(?=;).{2}"
+  # create html page
+  html_page <- create_page(html_table)
 
-  # remove inline css
-  html_table <- html_table %>%
-    stringr::str_replace_all(style_pattern, "") %>%
-    stringr::str_c(collapse = "")
-
-
-  # prepare output by using htmltools to set up tag with html_table
-  html <- create_page(html_table)
-
-  # output the table to temporary html_file
-  html %>%
+  # output the page to temporary html_file
+  html_page %>%
     browsable() %>%
     html_print()
 }
@@ -66,4 +56,24 @@ create_page <- function(x) {
   html <- attachDependencies(html, style_link)
 
   html
+}
+
+
+#' Creates a HTML table
+#'
+#' @param x A matrix, created by \code{build_tab}.
+#' @return A table in HTML format, without inline styling.
+prepare_table <- function(x) {
+  # create html_table
+  x <- utils::capture.output(
+    print(htmlTable::htmlTable(x), useViewer = F)
+  )
+
+  # pattern to remove inline css-styles
+  style_pattern <- "(style).*(?=;).{2}"
+
+  # remove inline css
+  x %>%
+    stringr::str_replace_all(style_pattern, "") %>%
+    stringr::str_c(collapse = "")
 }
