@@ -26,8 +26,9 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
     stop("Adding a layer is not implemented yet.")
 
   # evaluate formula and create terms object
-  forumla <- substitute(x)
-  model <- eval(forumla, data) %>% stats::terms()
+  formula <- substitute(x)
+  model <- eval(formula, data)
+  model <- stats::terms(model)
 
   # build data.frame from terms object.
   model_frame <- stats::model.frame(model)
