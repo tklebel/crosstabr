@@ -15,7 +15,12 @@
 #'
 #' @export
 crosstab <- function(data = NULL, x = NULL, layer = NULL) {
-  assertthat::assert_that(is.data.frame(data), is_formula(x))
+  if (!is.data.frame(data)) {
+    stop("Data must be a 'data.frame'.")
+  }
+  if (!is_formula(x)) {
+    stop("'x' must be a formula.")
+  }
 
   if (!is.null(layer))
     stop("Adding a layer is not implemented yet.")
