@@ -14,6 +14,9 @@
 #' way.
 #'
 #' @export
+#' @examples
+#' titanic %>%
+#'   crosstab(Survived ~ Sex)
 crosstab <- function(data = NULL, x = NULL, layer = NULL) {
   if (!is.data.frame(data)) {
     stop("Data must be a 'data.frame'.")

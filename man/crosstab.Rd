@@ -23,4 +23,8 @@ way.}
 \description{
 build cross table from formula
 }
+\examples{
+titanic \%>\%
+  crosstab(Survived ~ Sex)
+}
 
