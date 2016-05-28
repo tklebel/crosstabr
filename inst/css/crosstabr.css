@@ -87,6 +87,7 @@ th:last-child, td:last-child {
 
 td:first-child {
   text-align: center;
+  border-right: thin solid black;
 }
 
 td {
