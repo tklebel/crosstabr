@@ -1,0 +1,39 @@
+#stats {
+  font-family: 'Open Sans', sans-serif;
+  font-size: small;
+}
+
+@media only screen and (min-width: 800px) {
+  table {
+    margin: 1em auto;
+  }
+
+  #tables {
+    position: relative;
+  	width: 80%;
+  	margin: auto;
+  }
+
+  #stats {
+    width: 40%;
+    clear: both;
+    margin: auto;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #tables {
+    position: relative;
+  	float: left;
+  	width: 60%;
+  	margin: 0 1em;
+  }
+
+  #stats {
+    width: 35%;
+    float: right;
+    clear: none;
+  }
+
+}

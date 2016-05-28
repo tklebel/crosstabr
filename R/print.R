@@ -12,16 +12,21 @@ print.crosstab <- function(x, ...) {
   # compute table
   tab_out <- build_tab(x)
 
+  # prepare test statistics
+  html_tests <- prepare_stats(x)
+
   # create html table
   html_table <- prepare_table(tab_out)
 
   # create html page
-  html_page <- create_page(html_table)
+  html_page <- create_page(html_table, html_tests)
 
   # output the page to temporary html_file
   html_page %>%
     browsable() %>%
     html_print()
+
+  invisible(x)
 }
 
 
@@ -32,9 +37,10 @@ print.crosstab <- function(x, ...) {
 #' Later on this function should be more flexible insofar as the content of the
 #' page should be dependent on the content of the table.
 #'
-#' @param x A bare HTML table, created with \code{htmlTable}.
+#' @param table A bare HTML table, created with \code{htmlTable}.
+#' @param stats Character output from a statistical test.
 #' @return A \code{tagList} with registered dependencies.
-create_page <- function(x) {
+create_page <- function(table, stats) {
 
   # create link to stylesheet
   style_link <- htmltools::htmlDependency(
@@ -44,15 +50,35 @@ create_page <- function(x) {
     stylesheet = "css/crosstabr.css"
   )
 
-  html <- tagList(
-    tags$body(
-      div(id = "tables",
-          div(id = "two-way",
-            HTML(x)
-          )
+  # Create page without statistics
+  if (is.null(stats)) {
+    html <- tagList(
+      tags$body(
+        div(id = "tables",
+            div(id = "two-way",
+                HTML(table)
+            )
         )
+      )
     )
-  )
+  } else if (!is.null(stats)) { # Create page with statistics
+
+    style_link$stylesheet <- c(style_link$stylesheet, "css/with_stats.css")
+
+    html <- tagList(
+      tags$body(
+        div(id = "tables",
+            div(id = "two-way",
+                HTML(table)
+            )
+        ),
+        div(id = "stats",
+            HTML(stats)
+        )
+      )
+    )
+  }
+
   html <- attachDependencies(html, style_link)
 
   html

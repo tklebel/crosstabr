@@ -42,7 +42,8 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
       terms_model = model,
       model_frame = model_frame,
       layout = NULL,
-      layer = NULL
+      layer = NULL,
+      tests = NULL
     ),
     class = "crosstab"
   )
