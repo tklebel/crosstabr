@@ -23,3 +23,11 @@ devtools::install_github("tklebel/crosstabr")
 titanic %>% 
   crosstab(Survived ~ Sex)
 ```
+
+## Add statistical tests
+
+```R
+titanic %>% 
+  crosstab(Survived ~ Sex) %>% 
+  add_stats()
+```

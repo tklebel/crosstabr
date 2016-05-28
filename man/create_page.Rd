@@ -4,10 +4,12 @@
 \alias{create_page}
 \title{HTML parts of page}
 \usage{
-create_page(x)
+create_page(table, stats)
 }
 \arguments{
-\item{x}{A bare HTML table, created with \code{htmlTable}.}
+\item{table}{A bare HTML table, created with \code{htmlTable}.}
+
+\item{stats}{Character output from a statistical test.}
 }
 \value{
 A \code{tagList} with registered dependencies.
