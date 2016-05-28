@@ -22,14 +22,14 @@ build_tab <- function(tab) {
     purrr::map_at("prop", format_freq)
 
   # combine counts and proportions into one string
-  combinded <- paste(prop_count$Freq, prop_count$prop, sep = "<br>")
+  combined <- paste(prop_count$Freq, prop_count$prop, sep = "<br>")
 
   # prepare dimnames for matrix
   levels_dependent <- levels(prop_count[[1]])
   levels_independent <- levels(prop_count[[2]])
 
   # create matrix from combined counts and proportions
-  two_d_table <- matrix(combinded, ncol = length(levels_independent),
+  two_d_table <- matrix(combined, ncol = length(levels_independent),
                         dimnames = list(
                           as.list(levels_dependent),
                           as.list(levels_independent)
