@@ -37,7 +37,8 @@ add_stats <- function(tab, ...) {
 
   if (sum_errors > 0) {
     errors <- purrr::keep(errors, ~!is.null(.))
-    warning("Not all statistics computed correctly:\n", unlist(errors))
+    warning("Not all statistics were computed correctly:\n", unlist(errors),
+            call. = F)
   }
 
   stats_out <- stats_out[["result"]]
