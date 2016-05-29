@@ -19,7 +19,8 @@ Imports:
     dplyr,
     tidyr,
     htmltools,
-    htmlTable
+    htmlTable,
+    vcd
 RoxygenNote: 5.0.1
 Suggests:
     covr,

@@ -31,6 +31,11 @@ table {
 	/* white-space: nowrap; */
 }
 
+
+hr {
+  border: solid thin #989898;
+}
+
 #tables {
 	position: relative;
 	width: 100%;
