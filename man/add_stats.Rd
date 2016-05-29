@@ -9,8 +9,11 @@ add_stats(tab, ...)
 \arguments{
 \item{tab}{A \code{cross_table} object.}
 
-\item{...}{Further arguments, currently passed down to
-\code{\link{fisher.test}}.}
+\item{...}{Names of statistical tests to perform on the data, i.e.
+\code{\link{fisher.test}} or \code{\link{chisq.test}}. The function must
+accept a \code{table} as input an can be an anonymous function.
+If no test is supplied, \code{\link[vcd]{assocstats}} is performed as
+default.}
 }
 \description{
 Currently this function computes a \code{\link{fisher.test}} on the data and
