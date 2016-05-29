@@ -15,4 +15,5 @@ A table in HTML format, without inline styling.
 \description{
 Creates a HTML table
 }
+\keyword{internal}
 

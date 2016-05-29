@@ -54,6 +54,7 @@ build_tab <- function(tab) {
 #'
 #' @return A \code{data.frame} with counts and proportions of for dependent and
 #' independent variables.
+#' @keywords internal
 compute_frequencies <- function(x) {
   # find variable names
   model_variables <- x$terms_model %>%

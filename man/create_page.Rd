@@ -21,4 +21,5 @@ This function currently serves to prepare the pagelayout.
 Later on this function should be more flexible insofar as the content of the
 page should be dependent on the content of the table.
 }
+\keyword{internal}
 

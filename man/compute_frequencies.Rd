@@ -19,4 +19,5 @@ Computes counts and frequencies from a \code{\link{tab}}.
 \details{
 Unused factor levels are retained
 }
+\keyword{internal}
 

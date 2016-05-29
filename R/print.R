@@ -40,6 +40,7 @@ print.crosstab <- function(x, ...) {
 #' @param table A bare HTML table, created with \code{htmlTable}.
 #' @param stats Character output from a statistical test.
 #' @return A \code{tagList} with registered dependencies.
+#' @keywords internal
 create_page <- function(table, stats) {
 
   # create link to stylesheet
@@ -89,6 +90,7 @@ create_page <- function(table, stats) {
 #'
 #' @param x A matrix, created by \code{build_tab}.
 #' @return A table in HTML format, without inline styling.
+#' @keywords internal
 prepare_table <- function(x) {
   # create html_table
   x <- utils::capture.output(
