@@ -69,12 +69,19 @@ hr {
 }
 
 
-/* Activate this, when marginal column is there
 
-th:last-child, td:last-child {
+tr:last-child {
+  border-top: thin solid black;
+  border-bottom: 2px solid black;
+}
+
+thead tr:first-child {
+  border-top: none;
+}
+
+td:last-child {
 	border-left: thin solid black;
 }
-*/
 
 td:first-child {
   text-align: center;

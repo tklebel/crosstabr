@@ -20,7 +20,8 @@ Imports:
     tidyr,
     htmltools,
     htmlTable,
-    vcd
+    vcd,
+    lazyeval
 RoxygenNote: 5.0.1
 Suggests:
     covr,

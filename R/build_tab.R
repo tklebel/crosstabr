@@ -17,6 +17,36 @@ build_tab <- function(tab) {
 
   prop_count <- compute_frequencies(tab)
 
+  # get marginal counts
+  model_variables <- tab$terms_model %>%
+    attr("variables")
+  dependent <- model_variables[[2]]
+  independent <- model_variables[[3]]
+
+  total_n <- sum(prop_count[["Freq"]])
+
+  margins <- prop_count %>%
+    dplyr::group_by_(independent) %>%
+    dplyr::mutate_(col_total = quote(sum(Freq))) %>%
+    dplyr::group_by_(dependent) %>%
+    dplyr::mutate_(row_total = quote(sum(Freq)),
+                   row_perc = lazyeval::interp(~sum(var)/total_n, var = quote(Freq)))
+
+  col_margins <-  margins$col_total %>%
+    unique() %>%
+    paste("100%", sep = "<br>")
+
+  row_percents <- margins$row_perc %>%
+    unique() %>%
+    format_freq()
+
+  row_total <- margins$row_total %>%
+    unique()
+
+  row_margins <- paste(row_total, row_percents, sep = "<br>") %>%
+    c(paste(total_n, "100%", sep = "<br>"))
+
+
   # format counts and frequencies accordingly
   prop_count <- prop_count %>%
     purrr::map_at("prop", format_freq)
@@ -34,6 +64,14 @@ build_tab <- function(tab) {
                           as.list(levels_dependent),
                           as.list(levels_independent)
                         ))
+
+  two_d_table <- rbind(two_d_table, col_margins) %>%
+    cbind(row_margins)
+
+  # set names of margins to 'total'
+  dimnames(two_d_table)[[1]][length(dimnames(two_d_table)[[1]])] <- "Total"
+  dimnames(two_d_table)[[2]][length(dimnames(two_d_table)[[2]])] <- "Total"
+
 
   if (identical(tab$layout, "column")) {
     tab_out <- two_d_table
