@@ -15,9 +15,9 @@ Depends: R (>= 2.10)
 Imports:
     magrittr,
     stringr,
-    purrr,
-    dplyr,
-    tidyr,
+    purrr (>= 0.2.1),
+    dplyr (>= 0.4.3),
+    tidyr (>= 0.4.1),
     htmltools,
     htmlTable,
     vcd,
