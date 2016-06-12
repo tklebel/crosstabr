@@ -65,8 +65,8 @@ titanic %>%
 ```
 
 When no specific tests are supplied, `add_stats()` defaults to
-`vcd::assocstats()` which yields a `chisq.test` likelihood ratio and three
-coefficients:
+`vcd::assocstats()` which yields the result of a `chisq.test`, the likelihood
+ratio and three coefficients:
 
 - Phi-coefficient
 - Contingency coefficient
