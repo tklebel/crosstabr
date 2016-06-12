@@ -101,6 +101,11 @@ compute_frequencies <- function(x) {
   dependent <- model_variables[[2]]
   independent <- model_variables[[3]]
 
+  # drop unused factor levels, if requested
+  if (!is.null(x$droplevels) && x$droplevels) {
+    x$model_frame[] <- droplevels(x$model_frame)
+  }
+
   # calculate frequencies and counts
   prop_count <- stats::xtabs(data = x$model_frame) %>%
     as.data.frame()

@@ -4,10 +4,13 @@
 \alias{layout_column}
 \title{Layout the cross_table with row-percentage.}
 \usage{
-layout_column(tab)
+layout_column(tab, droplevels = F)
 }
 \arguments{
 \item{tab}{A \code{cross_table} object.}
+
+\item{droplevels}{Should unused factor levels be omitted when creating the
+table? Defaults to keeping the levels.}
 }
 \description{
 Layout the cross_table with row-percentage.
