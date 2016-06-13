@@ -103,7 +103,7 @@ compute_frequencies <- function(x) {
 
   # drop unused factor levels, if requested
   if (!is.null(x$droplevels) && x$droplevels) {
-    x$model_frame[] <- droplevels(x$model_frame)
+    x$model_frame <- droplevels(x$model_frame)
   }
 
   # calculate frequencies and counts
