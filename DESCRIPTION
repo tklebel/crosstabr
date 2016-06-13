@@ -25,7 +25,10 @@ Imports:
 RoxygenNote: 5.0.1
 Suggests:
     covr,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 License: MIT + file LICENSE
 URL: https://github.com/tklebel/crosstabr
 BugReports: https://github.com/tklebel/crosstabr/issues
+VignetteBuilder: knitr

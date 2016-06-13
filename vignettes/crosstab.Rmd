@@ -1,0 +1,40 @@
+---
+title: "crosstabr"
+author: "Thomas Klebel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{crosstabr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Basic Usage
+
+
+# Unused factor levels
+`crosstabr` by default preserves unused factor levels. This might be useful
+when conducting exploratory tasks -- it would probably bad to miss levels
+which were simply not observed.
+
+```{r keep unobserved levels}
+library(crosstabr)
+rmarkdown::
+
+test_dat <- titanic # need to export data
+index <- test_dat$Class == "2nd"
+test_dat[index, ] <- NA
+
+test_dat %>%
+  crosstab(Survived ~ Class)
+```
+
+If you want to remove unused levels, simply add `droplevels = FALSE` when setting
+up the layout:
+
+```{r drop unobserved levels}
+test_dat %>%
+  crosstab(Survived ~ Class) %>%
+  layout_column(droplevels = T)
+```
+
