@@ -17,10 +17,8 @@ vignette: >
 when conducting exploratory tasks -- it would probably bad to miss levels
 which were simply not observed.
 
-```{r keep unobserved levels}
+```{r keep unobserved levels, results='asis'}
 library(crosstabr)
-rmarkdown::
-
 test_dat <- titanic # need to export data
 index <- test_dat$Class == "2nd"
 test_dat[index, ] <- NA

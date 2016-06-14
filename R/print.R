@@ -30,6 +30,43 @@ print.crosstab <- function(x, ...) {
 }
 
 
+#' Knit print method for crosstab
+#'
+#' @keywords internal
+#' @export
+knit_print.crosstab <- function(x, ...) {
+  # compute table
+  tab_out <- crosstabr:::build_tab(x)
+
+  # prepare test statistics
+  html_tests <- crosstabr:::prepare_stats(x)
+
+  # create html table
+  html_table <- crosstabr:::prepare_table(tab_out)
+
+  html_page <- create_page(html_table, html_tests)
+
+
+  #out <- knitr::asis_output(html_page)
+  style_link <- htmltools::htmlDependency(
+    name = "crosstabr",
+    version = as.character(utils::packageVersion("crosstabr")),
+    src = system.file(package = "crosstabr"),
+    stylesheet = "css/crosstabr.css"
+  )
+
+  out <- htmltools::attachDependencies(
+    htmltools::tagList(
+      HTML(html_table)
+    ), style_link
+  )
+  knitr::asis_output(out)
+
+  invisible(x)
+}
+
+# Helper functions -----------
+
 #' HTML parts of page
 #'
 #' This function currently serves to prepare the pagelayout.
