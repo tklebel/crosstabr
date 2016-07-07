@@ -23,7 +23,7 @@ h1 {
 
 table {
 	font-family: 'Open Sans', sans-serif;
-	margin: 1em auto;
+	margin: 0 auto;
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
@@ -31,6 +31,9 @@ table {
 	/* white-space: nowrap; */
 }
 
+td {
+	padding: 0;
+}
 
 hr {
   border: solid thin #989898;
@@ -70,32 +73,49 @@ hr {
 
 
 
-tr:last-child {
+.gmisc_table thead tr:first-child {
+  border-top: 0;
+}
+
+.gmisc_table th:first-child {
+  text-align: center;
+}
+
+.gmisc_table tr:last-child {
   border-top: thin solid black;
   border-bottom: 2px solid black;
 }
 
-thead tr:first-child {
-  border-top: none;
-}
-
-td:last-child {
+.gmisc_table td:last-child {
 	border-left: thin solid black;
 }
 
-td:first-child {
+.gmisc_table td:first-child {
   text-align: center;
   border-right: thin solid black;
+/*border-left: thin solid black;*/
 }
 
-td {
-	padding: .5em .5em;
+
+/* Style for the outer heading */
+#headings {
+  text-align: center;
+}
+
+#independent {
+  border-bottom: thin solid black;
+  padding-bottom: 0.2em;
+}
+
+/* Padding for inner table*/
+#outer_table td td {
+  padding: .5em .5em;
 }
 
 
 @media only screen and (min-width: 800px) {
-  table {
-    margin: 1em auto;
+  #independent {
+    padding-top: 1em;
   }
 
   #tables {

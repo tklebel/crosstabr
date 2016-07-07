@@ -18,6 +18,9 @@ print.crosstab <- function(x, ...) {
   # create html table
   html_table <- prepare_table(tab_out)
 
+  # add headings
+  html_table <- add_headings(html_table, tab_out, x)
+
   # create html page
   html_page <- create_page(html_table, html_tests)
 
@@ -104,4 +107,37 @@ prepare_table <- function(x) {
   x %>%
     stringr::str_replace_all(style_pattern, "") %>%
     stringr::str_c(collapse = "")
+}
+
+#' @keywords internal
+add_headings <- function(html_table, tab_out, x) {
+
+  # find headings
+  vars <- attr(x[["terms_model"]], "factors")
+  vars <- attr(vars, "dimnames")[[1]]
+
+  dependent <- vars[1]
+  independent <- vars[2]
+
+  # insert heading into original table
+  html_table <- stringr::str_replace(html_table, "<th >",
+                                     paste0("<th>", dependent))
+
+  # find number of cols and rows (excluding total col)
+  dimensions <- dim(tab_out) - 1
+  cols <- dimensions[2]
+  rows <- dimensions[1]
+
+  top <- paste0("<table id='outer_table'><tbody><tr id='headings'><td></td>",
+                "<td id='independent' colspan='",
+                cols,
+                "'>",
+                independent,
+                "</td><td></td></tr><tr><td colspan='",
+                cols + 2,
+                "'>")
+  bottom <- "</td></tr></tbody></table>"
+
+  result <- paste(top, html_table, bottom)
+  result
 }
