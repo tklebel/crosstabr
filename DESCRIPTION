@@ -1,7 +1,7 @@
 Package: crosstabr
 Type: Package
 Title: Cross Tabulation with HTML and R Markdown
-Version: 0.1.2
+Version: 0.2.0
 Authors@R: person("Thomas", "Klebel", email = "t.klebel@icloud.com",
           role = c("cre", "aut"))
 Description: Cross tabulation for HTML and R Markdown. This packages offers
