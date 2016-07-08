@@ -36,33 +36,21 @@ print.crosstab <- function(x, ...) {
 #' @export
 knit_print.crosstab <- function(x, ...) {
   # compute table
-  tab_out <- crosstabr:::build_tab(x)
+  tab_out <- build_tab(x)
 
   # prepare test statistics
-  html_tests <- crosstabr:::prepare_stats(x)
+  html_tests <- prepare_stats(x)
 
   # create html table
-  html_table <- crosstabr:::prepare_table(tab_out)
+  html_table <- prepare_table(tab_out)
 
+  # create page
   html_page <- create_page(html_table, html_tests)
 
+  deps <- htmltools::findDependencies(html_page)
 
-  #out <- knitr::asis_output(html_page)
-  style_link <- htmltools::htmlDependency(
-    name = "crosstabr",
-    version = as.character(utils::packageVersion("crosstabr")),
-    src = system.file(package = "crosstabr"),
-    stylesheet = "css/crosstabr.css"
-  )
-
-  out <- htmltools::attachDependencies(
-    htmltools::tagList(
-      HTML(html_table)
-    ), style_link
-  )
-  knitr::asis_output(out)
-
-  invisible(x)
+  knitr::asis_output(htmltools::htmlPreserve(as.character(html_page)),
+                     meta = deps)
 }
 
 # Helper functions -----------
