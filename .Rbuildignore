@@ -6,3 +6,5 @@
 ^dev.R$
 ^codecov\.yml$
 ^appveyor\.yml$
+^test.*$
+^notebook_test.*$
