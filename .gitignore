@@ -1,4 +1,8 @@
 .Rproj.user
 .Rhistory
 .RData
-inst/doc
+
+
+dev.R
+*test.*
+testdata
