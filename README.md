@@ -1,4 +1,5 @@
 [![Travis-CI Build Status](https://travis-ci.org/tklebel/crosstabr.svg?branch=master)](https://travis-ci.org/tklebel/crosstabr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tklebel/crosstabr?branch=master&svg=true)](https://ci.appveyor.com/project/tklebel/crosstabr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tklebel/crosstabr/master.svg)](https://codecov.io/github/tklebel/crosstabr?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/crosstabr)](https://cran.r-project.org/package=crosstabr)
 
