@@ -9,20 +9,7 @@
 #' @export
 print.crosstab <- function(x, ...) {
 
-  # compute table
-  tab_out <- build_tab(x)
-
-  # prepare test statistics
-  html_tests <- prepare_stats(x)
-
-  # create html table
-  html_table <- prepare_table(tab_out)
-
-  # add headings
-  html_table <- add_headings(html_table, tab_out, x)
-
-  # create html page
-  html_page <- create_page(html_table, html_tests)
+  html_page <- combine_parts(x)
 
   # output the page to temporary html_file
   html_page %>%
@@ -38,6 +25,17 @@ print.crosstab <- function(x, ...) {
 #' @keywords internal
 #' @export
 knit_print.crosstab <- function(x, ...) {
+
+  html_page <- combine_parts(x)
+  deps <- htmltools::findDependencies(html_page)
+
+  knitr::asis_output(htmltools::htmlPreserve(as.character(html_page)),
+                     meta = deps)
+}
+
+# Helper functions -----------
+
+combine_parts <- function(x) {
   # compute table
   tab_out <- build_tab(x)
 
@@ -47,16 +45,15 @@ knit_print.crosstab <- function(x, ...) {
   # create html table
   html_table <- prepare_table(tab_out)
 
-  # create page
+  # add headings
+  html_table <- add_headings(html_table, tab_out, x)
+
+  # create html page
   html_page <- create_page(html_table, html_tests)
 
-  deps <- htmltools::findDependencies(html_page)
-
-  knitr::asis_output(htmltools::htmlPreserve(as.character(html_page)),
-                     meta = deps)
+  html_page
 }
 
-# Helper functions -----------
 
 #' HTML parts of page
 #'
