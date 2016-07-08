@@ -4,3 +4,4 @@
 ^data-raw$
 ^testdata$
 ^dev.R$
+^codecov\.yml$
