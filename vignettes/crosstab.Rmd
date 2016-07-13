@@ -36,3 +36,39 @@ test_dat %>%
   layout_column(droplevels = T)
 ```
 
+# Programming with crosstabr
+
+You can program with `crosstabr` in several ways.
+
+## Wrapping the pipeline
+In case you want to reuse a certain configuration of using `crosstabr`, you can
+simplay wrap it in a function:
+
+```{r}
+fun <- function(data, formula) {
+  data %>%
+    crosstab(formula) %>% 
+    layout_column() %>% 
+    add_stats(chisq.test)
+}
+
+fun(titanic, Survived ~ Class)
+```
+
+
+## Creating formula from (string) variables
+In case you want to refer to the names of variables via a string variable, you
+can use `reformulate` to construct the formula for you:
+
+```{r, message=FALSE}
+fun2 <- function(data, dep, indep) {
+  data %>%
+    crosstab(reformulate(indep, response = dep))
+}
+
+dep <- "Survived"
+indep <- "Class"
+
+fun2(titanic, dep, indep)
+```
+
