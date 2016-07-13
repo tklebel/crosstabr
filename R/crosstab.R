@@ -28,19 +28,17 @@ crosstab <- function(data = NULL, x = NULL, layer = NULL) {
   if (!is.null(layer))
     stop("Adding a layer is not implemented yet.")
 
-  # evaluate formula and create terms object
-  formula <- substitute(x)
-  model <- eval(formula, data)
-  model <- stats::terms(model)
+  # find vars and subset data
+  dependent <- lazyeval::f_lhs(x) %>% as.character()
+  independent <- lazyeval::f_rhs(x) %>% as.character()
 
-  # build data.frame from terms object.
-  model_frame <- stats::model.frame(model)
-
+  model_data <- data[c(dependent, independent)]
 
   tab <- structure(
     list(
-      terms_model = model,
-      model_frame = model_frame,
+      model_data = model_data,
+      dependent = dependent,
+      independent = independent,
       layout = NULL,
       droplevels = NULL,
       layer = NULL,

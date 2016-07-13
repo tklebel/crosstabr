@@ -18,17 +18,12 @@ build_tab <- function(tab) {
   prop_count <- compute_frequencies(tab)
 
   # get marginal counts
-  model_variables <- tab$terms_model %>%
-    attr("variables")
-  dependent <- model_variables[[2]]
-  independent <- model_variables[[3]]
-
   total_n <- sum(prop_count[["Freq"]])
 
   margins <- prop_count %>%
-    dplyr::group_by_(independent) %>%
+    dplyr::group_by_(tab$independent) %>%
     dplyr::mutate_(col_total = quote(sum(Freq))) %>%
-    dplyr::group_by_(dependent) %>%
+    dplyr::group_by_(tab$dependent) %>%
     dplyr::mutate_(row_total = quote(sum(Freq)),
                    row_perc = lazyeval::interp(~sum(var)/total_n, var = quote(Freq)))
 
@@ -94,27 +89,20 @@ build_tab <- function(tab) {
 #' independent variables.
 #' @keywords internal
 compute_frequencies <- function(x) {
-  # find variable names
-  model_variables <- x$terms_model %>%
-    attr("variables")
-
-  dependent <- model_variables[[2]]
-  independent <- model_variables[[3]]
-
-  # drop unused factor levels, if requested
+    # drop unused factor levels, if requested
   if (!is.null(x$droplevels) && x$droplevels) {
-    x$model_frame <- droplevels(x$model_frame)
+    x$model_data <- droplevels(x$model_data)
   }
 
   # calculate frequencies and counts
-  prop_count <- stats::xtabs(data = x$model_frame) %>%
+  prop_count <- stats::xtabs(data = x$model_data) %>%
     as.data.frame()
 
   prop_count <- prop_count %>%
-    dplyr::group_by_(independent) %>%
+    dplyr::group_by_(x$independent) %>%
     dplyr::mutate_(prop = quote(Freq / sum(Freq))) %>%
     tidyr::replace_na(list(prop = 0)) %>%
-    dplyr::arrange_(independent)
+    dplyr::arrange_(x$independent)
   prop_count
 }
 

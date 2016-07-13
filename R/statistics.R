@@ -16,7 +16,7 @@
 #'   crosstab(Survived ~ Sex) %>%
 #'   add_stats()
 add_stats <- function(tab, ...) {
-  base_table <- tab[["model_frame"]] %>%
+  base_table <- tab[["model_data"]] %>%
     table()
 
   stats <- list(...)

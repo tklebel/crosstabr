@@ -134,16 +134,9 @@ prepare_table <- function(x) {
 #' @keywords internal
 add_headings <- function(html_table, tab_out, x) {
 
-  # find headings
-  vars <- attr(x[["terms_model"]], "factors")
-  vars <- attr(vars, "dimnames")[[1]]
-
-  dependent <- vars[1]
-  independent <- vars[2]
-
   # insert heading into original table
   html_table <- stringr::str_replace(html_table, "<th >",
-                                     paste0("<th>", dependent))
+                                     paste0("<th>", x$dependent))
 
   # find number of cols and rows (excluding total col)
   dimensions <- dim(tab_out) - 1
@@ -154,7 +147,7 @@ add_headings <- function(html_table, tab_out, x) {
                 "<td id='independent' colspan='",
                 cols,
                 "'>",
-                independent,
+                x$independent,
                 "</td><td></td></tr><tr><td colspan='",
                 cols + 2,
                 "'>")
