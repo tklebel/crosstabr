@@ -12,6 +12,12 @@ install:
 
 # Adapt as necessary starting from here
 
+# needed to install from github
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
+    USE_RTOOLS: true
+
 build_script:
   - travis-tool.sh install_deps
   - travis-tool.sh install_github hadley/devtools
