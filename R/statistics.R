@@ -57,7 +57,7 @@ prepare_stats <- function(x) {
 
     # update class for custom print method
     stats <- x$statistics %>%
-      purrr::at_depth(1, add_class)
+      purrr::map(add_class)
 
     out <- utils::capture.output(
       print(stats)
